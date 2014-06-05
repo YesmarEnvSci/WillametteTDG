@@ -3,4 +3,4 @@ Willamette TDG
 
 Total Disolved Gas Analysis
 
-Data requests must be submitted to YesmarENV.
+Data requests must be submitted to YesmarEnvSci.
