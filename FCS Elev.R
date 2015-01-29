@@ -50,4 +50,7 @@ hist2 <- hist(fcs$TDG_PSat, breaks = 75,
     xlab = 'TDG Saturation')
   lines(density(fcs$TDG_PSat, bw=.75), col = 'red', lwd = 2)
 
+hist(psat$TDG_PSat, breaks = 100)
+
+
 
