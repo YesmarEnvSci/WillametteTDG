@@ -6,22 +6,26 @@ dt<-dt[,-c(1,3,12)]
 boxplot(dt)
 boxplot(scale(dt))
 
-str(dt)
-summary(dt)
-
 require(dplyr)
-smpl <- sample_frac(dt,0.5,replace=FALSE)
+tdg <- sample_frac(dt,0.10,replace=FALSE)
 
-cor.matrix(smpl)
+cor.matrix(tdg) #regression correlatin matrix
+cor.matrix(log((tdg+1)))
 
-lg <-(log(smpl+1))
-str(lg)
-boxplot(scale(lg))
-
-cor.matrix(lg)
+cor(tdg)#covariance matrix
+cor()
 
 library(MASS)
-pca <-princomp(scale(lg))
-summary(pca)
+pca <-princomp(scale(log(tdg+1)))
+summary(pca) #Eigenvalues
+broken.stick(9)
 biplot(pca)
-scores(lg)
+
+pca$scores #PC Matrix
+loadings(pca) #Check eigenvectors: How closely variables are related to components; 
+# Principal component loading (pg 50)
+
+
+
+
+
