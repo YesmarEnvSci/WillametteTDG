@@ -1,10 +1,11 @@
 # Bernard Romey ~ 25April14
 
-TDG <- read.csv("TDG.csv")
+dta <- read.csv("TDG.csv")
+dt <-na.omit(dta)
 
-library(dplyr)
-psat <- TDG %.% select(Date, Q_falls, mWH, Fcs_mean, Mean_ft_msl, TDG_PSat)
-psat <-  na.omit(psat)
+require(dplyr)
+tdg <- sample_frac(dt,0.075,replace=FALSE)
+psat <- tdg %.% select(Date, Q_falls, mWH, Fcs_mean, Mean_ft_msl, TDG_PSat)
 
 fcs <- subset(psat, Fcs_mean > 15)
 fcs25 <- subset(fcs, Fcs_mean > 15 & Fcs_mean <= 25, select=c(Q_falls, Fcs_mean, TDG_PSat))
