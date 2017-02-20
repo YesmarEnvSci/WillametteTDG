@@ -1,7 +1,8 @@
 # Bernard Romey ~ 25April14
 
-dta <- read.csv("TDG.csv")
-dt <-na.omit(dta)
+dta <- read.csv("tdg_wf.csv")
+dta1 <- dta[-c(23:24,27:28,35:36)]
+dt <-na.omit(dta1)
 
 require(dplyr)
 tdg <- sample_frac(dt,0.075,replace=FALSE)
